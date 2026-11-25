@@ -135,8 +135,14 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
   background: rgba(0, 0, 0, 0.9);
 }
-#header.header-top .social-links, #header.header-top h2 {
+#header.header-top .social-links, #header.header-top h2, #header.header-top .header-tagline {
   display: none;
+}
+.header-tagline {
+  margin-top: 14px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.72);
 }
 #header.header-top h1 {
   margin-right: auto;
@@ -427,11 +433,12 @@ section .container {
   display: block;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  color: rgb(235, 19, 19);
+  color: #fff;
 }
 .skills .progress .skill .val {
   float: right;
   font-style: normal;
+  color: #18d26e;
 }
 .skills .progress-bar-wrap {
   background: rgba(255, 255, 255, 0.2);
@@ -440,7 +447,105 @@ section .container {
   width: 1px;
   height: 10px;
   transition: 0.9s;
-  background-color: #46584f;
+  background-color: #18d26e;
+}
+
+/* Skill Category Cards & Pills */
+.skill-category-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid #18d26e;
+  border-radius: 6px;
+  padding: 20px;
+  height: 100%;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+.skill-category-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+.skill-category-card h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.skill-category-card h4 i {
+  color: #18d26e;
+  font-size: 18px;
+}
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.skill-pill {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(24, 210, 110, 0.12);
+  color: #d7f9e6;
+  border: 1px solid rgba(24, 210, 110, 0.28);
+}
+
+/* Executive Snapshot Card */
+.profile-snapshot {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid #18d26e;
+  border-radius: 6px;
+  padding: 24px;
+  height: 100%;
+}
+.profile-snapshot .snapshot-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(24, 210, 110, 0.15);
+  color: #18d26e;
+  margin-bottom: 14px;
+}
+.profile-snapshot h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 14px;
+}
+.profile-snapshot .snapshot-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.profile-snapshot .snapshot-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 14px;
+  gap: 12px;
+}
+.profile-snapshot .snapshot-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.profile-snapshot .snapshot-label {
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
+}
+.profile-snapshot .snapshot-value {
+  color: #fff;
+  font-weight: 600;
+  text-align: right;
 }
 
 /*--------------------------------------------------------------
@@ -781,13 +886,14 @@ section .container {
   font-size: 20px;
   color: #fff;
   font-weight: 600;
+  padding: 0 20px;
 }
 .portfolio .portfolio-wrap .portfolio-info p {
-  color: #ffffff;
-  font-size: 14px;
-  text-transform: uppercase;
-  padding: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  padding: 6px 24px 10px 24px;
   margin: 0;
+  line-height: 1.45;
 }
 .portfolio .portfolio-wrap .portfolio-links {
   text-align: center;
