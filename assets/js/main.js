@@ -238,4 +238,27 @@
     }
   });
 
+  /**
+   * Static contact form handler (mailto fallback)
+   */
+  const contactForm = select('#contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = select('#name').value.trim();
+      const email = select('#email').value.trim();
+      const subject = select('#subject').value.trim();
+      const message = select('#message').value.trim();
+
+      const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+      const mailtoUrl = `mailto:vishnusingh1847@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      const successEl = select('#contact-success');
+      if (successEl) {
+        successEl.style.display = 'block';
+      }
+      window.location.href = mailtoUrl;
+    });
+  }
+
 })()
