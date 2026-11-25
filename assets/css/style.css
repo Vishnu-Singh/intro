@@ -8,17 +8,52 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+:root {
+  --accent: #18d26e;
+  --accent-hover: #35e888;
+  --accent-soft: rgba(24, 210, 110, 0.14);
+  --accent-border: rgba(24, 210, 110, 0.3);
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-hover: rgba(255, 255, 255, 0.09);
+  --border-subtle: rgba(255, 255, 255, 0.09);
+  --text-secondary: rgba(255, 255, 255, 0.82);
+  --text-muted: rgba(255, 255, 255, 0.62);
+}
+
+::selection {
+  background: var(--accent);
+  color: #040404;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0d0f;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   background-color: #040404;
   color: #fff;
   position: relative;
   background: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 body::before {
   content: "";
   position: fixed;
-  background: #040404 url("../img/background/bg2.jpg") top right no-repeat;
+  background:
+    linear-gradient(135deg, rgba(4, 8, 12, 0.82) 0%, rgba(6, 14, 18, 0.72) 50%, rgba(4, 8, 12, 0.86) 100%),
+    url("../img/background/bg2.jpg") top right no-repeat;
   background-size: cover;
   left: 0;
   right: 0;
@@ -133,7 +168,10 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   top: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(8, 12, 14, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
 }
 #header.header-top .social-links, #header.header-top h2, #header.header-top .header-tagline {
   display: none;
@@ -308,8 +346,13 @@ section.section-show {
   padding-bottom: 45px;
 }
 section .container {
-  background: rgba(0, 0, 0, 0.9);
-  padding: 30px;
+  background: rgba(8, 12, 14, 0.86);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+  padding: 36px;
 }
 @media (max-width: 768px) {
   section {
@@ -386,11 +429,19 @@ section .container {
   padding: 70px 0 60px;
 }
 .counts .count-box {
-  padding: 30px 30px 25px 30px;
+  padding: 32px 24px 24px 24px;
   width: 100%;
   position: relative;
   text-align: center;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+.counts .count-box:hover {
+  background: var(--surface-hover);
+  border-color: var(--accent-border);
+  transform: translateY(-3px);
 }
 .counts .count-box i {
   position: absolute;
@@ -555,12 +606,14 @@ section .container {
   display: flex;
   align-items: center;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.08);
-  transition: ease-in-out 0.3s;
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  transition: ease-in-out 0.25s;
 }
 .interests .icon-box i {
   font-size: 32px;
-  padding-right: 10px;
+  padding-right: 12px;
   line-height: 1;
 }
 .interests .icon-box h3 {
@@ -572,7 +625,9 @@ section .container {
   color: #fff;
 }
 .interests .icon-box:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--surface-hover);
+  border-color: var(--accent-border);
+  transform: translateY(-2px);
 }
 
 /*--------------------------------------------------------------
@@ -669,9 +724,13 @@ section .container {
   margin-bottom: 10px;
 }
 .resume .resume-item h5 {
-  font-size: 16px;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 5px 15px;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  background: var(--accent-soft);
+  color: #d7f9e6;
+  border: 1px solid var(--accent-border);
+  border-radius: 4px;
+  padding: 5px 12px;
   display: inline-block;
   font-weight: 600;
   margin-bottom: 10px;
@@ -681,6 +740,11 @@ section .container {
 }
 .resume .resume-item ul li {
   padding-bottom: 10px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.resume .resume-item ul li strong {
+  color: #fff;
 }
 
 .resume .resume-item .project-title {
@@ -828,6 +892,14 @@ section .container {
   overflow: hidden;
   z-index: 1;
   background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+}
+.portfolio .portfolio-wrap img {
+  transition: transform 0.45s ease;
+}
+.portfolio .portfolio-wrap:hover img {
+  transform: scale(1.05);
 }
 .portfolio .portfolio-wrap::before {
   content: "";
@@ -994,9 +1066,16 @@ section .container {
 --------------------------------------------------------------*/
 .contact .info-box {
   color: #444444;
-  padding: 20px;
+  padding: 22px;
   width: 100%;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.contact .info-box:hover {
+  background: var(--surface-hover);
+  border-color: var(--accent-border);
 }
 .contact .info-box i.bx {
   font-size: 24px;
@@ -1036,7 +1115,9 @@ section .container {
 }
 .contact .php-email-form {
   padding: 30px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
 }
 .contact .php-email-form .error-message {
   display: none;
@@ -1076,16 +1157,19 @@ section .container {
   animation: animate-loading 1s linear infinite;
 }
 .contact .php-email-form input, .contact .php-email-form textarea {
-  border-radius: 0;
+  border-radius: 6px;
   box-shadow: none;
   font-size: 14px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 0;
-  transition: 0.3s;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--border-subtle);
+  transition: 0.25s;
   color: #fff;
 }
 .contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
   background-color: rgba(255, 255, 255, 0.11);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(24, 210, 110, 0.15);
+  outline: none;
 }
 .contact .php-email-form input::-moz-placeholder, .contact .php-email-form textarea::-moz-placeholder {
   color: rgba(255, 255, 255, 0.3);

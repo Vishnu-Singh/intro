@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070b0e"/>
+      <stop offset="55%" stop-color="#0c1419"/>
+      <stop offset="100%" stop-color="#081014"/>
+    </linearGradient>
+    <radialGradient id="glowEmerald" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#18d26e" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#18d26e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowCyan" cx="75%" cy="25%" r="45%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(255,255,255,0.035)" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#18d26e" stop-opacity="0.1"/>
+      <stop offset="50%" stop-color="#18d26e" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+  <rect width="800" height="600" fill="url(#glowEmerald)"/>
+  <rect width="800" height="600" fill="url(#glowCyan)"/>
+
+  <!-- Subtle outer frame -->
+  <rect x="20" y="20" width="760" height="560" rx="16" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1.5"/>
+
+  <!-- Top category pill -->
+  <rect x="44" y="42" width="180" height="28" rx="14" fill="rgba(24,210,110,0.12)" stroke="rgba(24,210,110,0.35)" stroke-width="1"/>
+  <circle cx="62" cy="56" r="4" fill="#18d26e"/>
+  <text x="76" y="60" font-family="Poppins, Inter, system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="1.2" fill="#d7f9e6">CLOUD MIGRATION</text>
+
+  <!-- Custom Artwork -->
+  
+        <!-- On-prem server rack -->
+        <rect x="120" y="166" width="140" height="210" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+        <rect x="140" y="192" width="100" height="32" rx="4" fill="rgba(255,255,255,0.08)"/>
+        <rect x="140" y="242" width="100" height="32" rx="4" fill="rgba(255,255,255,0.08)"/>
+        <rect x="140" y="292" width="100" height="32" rx="4" fill="rgba(255,255,255,0.08)"/>
+        <text x="190" y="356" text-anchor="middle" font-family="monospace" font-size="11" fill="rgba(255,255,255,0.6)">ON-PREM</text>
+
+        <!-- Migration bridge arrows -->
+        <g stroke="#18d26e" stroke-width="2.5" stroke-dasharray="6 4">
+          <line x1="275" y1="220" x2="500" y2="220"/>
+          <line x1="275" y1="270" x2="500" y2="270"/>
+          <line x1="275" y1="320" x2="500" y2="320"/>
+        </g>
+        <polygon points="495,212 512,220 495,228" fill="#18d26e"/>
+        <polygon points="495,262 512,270 495,278" fill="#18d26e"/>
+        <polygon points="495,312 512,320 495,328" fill="#18d26e"/>
+
+        <!-- GCP Cloud Cluster -->
+        <rect x="520" y="166" width="160" height="210" rx="14" fill="rgba(24,210,110,0.12)" stroke="#18d26e" stroke-width="2"/>
+        <circle cx="600" cy="246" r="46" fill="rgba(56,189,248,0.14)" stroke="#38bdf8" stroke-width="2"/>
+        <text x="600" y="251" text-anchor="middle" font-family="monospace" font-size="14" font-weight="700" fill="#fff">GCP GKE</text>
+        <text x="600" y="356" text-anchor="middle" font-family="monospace" font-size="11" fill="#18d26e">FORTUNE 50</text>
+        
+
+  <!-- Bottom title bar -->
+  <rect x="44" y="476" width="712" height="80" rx="10" fill="rgba(6,10,13,0.78)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <line x1="44" y1="476" x2="260" y2="476" stroke="#18d26e" stroke-width="2.5"/>
+  <text x="64" y="510" font-family="Poppins, Inter, system-ui, sans-serif" font-size="22" font-weight="700" fill="#ffffff">Healthcare GCP Migration</text>
+  <text x="64" y="536" font-family="Open Sans, Inter, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.68)">On-Prem Enterprise Analytics to GCP (GKE &amp; Terraform)</text>
+</svg>
