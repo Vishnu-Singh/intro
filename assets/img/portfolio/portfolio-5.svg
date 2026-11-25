@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070b0e"/>
+      <stop offset="55%" stop-color="#0c1419"/>
+      <stop offset="100%" stop-color="#081014"/>
+    </linearGradient>
+    <radialGradient id="glowEmerald" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#18d26e" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#18d26e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowCyan" cx="75%" cy="25%" r="45%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(255,255,255,0.035)" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#18d26e" stop-opacity="0.1"/>
+      <stop offset="50%" stop-color="#18d26e" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+  <rect width="800" height="600" fill="url(#glowEmerald)"/>
+  <rect width="800" height="600" fill="url(#glowCyan)"/>
+
+  <!-- Subtle outer frame -->
+  <rect x="20" y="20" width="760" height="560" rx="16" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1.5"/>
+
+  <!-- Top category pill -->
+  <rect x="44" y="42" width="180" height="28" rx="14" fill="rgba(24,210,110,0.12)" stroke="rgba(24,210,110,0.35)" stroke-width="1"/>
+  <circle cx="62" cy="56" r="4" fill="#18d26e"/>
+  <text x="76" y="60" font-family="Poppins, Inter, system-ui, sans-serif" font-size="11" font-weight="600" letter-spacing="1.2" fill="#d7f9e6">DATA ENGINEERING</text>
+
+  <!-- Custom Artwork -->
+  
+        <!-- Parallel data streams -->
+        <g fill="none" stroke-width="3" stroke-linecap="round">
+          <path d="M 110 180 C 240 180, 260 220, 390 220" stroke="#38bdf8" opacity="0.75"/>
+          <path d="M 110 260 L 390 260" stroke="#18d26e"/>
+          <path d="M 110 340 C 240 340, 260 300, 390 300" stroke="#38bdf8" opacity="0.75"/>
+        </g>
+        <!-- Lakehouse layers -->
+        <rect x="390" y="160" width="130" height="200" rx="10" fill="rgba(24,210,110,0.12)" stroke="#18d26e" stroke-width="2"/>
+        <rect x="410" y="186" width="90" height="36" rx="6" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)"/>
+        <text x="455" y="209" text-anchor="middle" font-family="monospace" font-size="11" fill="#fff">BRONZE</text>
+        <rect x="410" y="242" width="90" height="36" rx="6" fill="rgba(56,189,248,0.15)" stroke="#38bdf8"/>
+        <text x="455" y="265" text-anchor="middle" font-family="monospace" font-size="11" fill="#38bdf8">SILVER</text>
+        <rect x="410" y="298" width="90" height="36" rx="6" fill="rgba(24,210,110,0.22)" stroke="#18d26e"/>
+        <text x="455" y="321" text-anchor="middle" font-family="monospace" font-size="11" fill="#18d26e">GOLD</text>
+        <!-- Throughput bars -->
+        <rect x="565" y="290" width="24" height="70" rx="4" fill="rgba(255,255,255,0.18)"/>
+        <rect x="603" y="245" width="24" height="115" rx="4" fill="#38bdf8" opacity="0.8"/>
+        <rect x="641" y="190" width="24" height="170" rx="4" fill="#18d26e"/>
+        <rect x="679" y="160" width="24" height="200" rx="4" fill="#35e888"/>
+        
+
+  <!-- Bottom title bar -->
+  <rect x="44" y="476" width="712" height="80" rx="10" fill="rgba(6,10,13,0.78)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <line x1="44" y1="476" x2="260" y2="476" stroke="#18d26e" stroke-width="2.5"/>
+  <text x="64" y="510" font-family="Poppins, Inter, system-ui, sans-serif" font-size="22" font-weight="700" fill="#ffffff">Retail Data Platform</text>
+  <text x="64" y="536" font-family="Open Sans, Inter, system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.68)">Databricks, PySpark &amp; SQL Throughput Optimization</text>
+</svg>
