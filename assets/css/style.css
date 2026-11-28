@@ -784,6 +784,62 @@ section .container {
   border: 2px solid #18d26e;
 }
 
+.resume .experience-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 2px solid rgba(24, 210, 110, 0.45);
+  border-radius: 0 10px 10px 0;
+  padding: 22px 24px 18px 24px;
+  margin-bottom: 22px;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.resume .experience-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(24, 210, 110, 0.35);
+  border-left-color: #18d26e;
+}
+.resume .experience-card::before {
+  top: 24px;
+}
+.resume .experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.resume .experience-header h4 {
+  margin-bottom: 4px;
+}
+.resume .experience-header h5 {
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+.resume .experience-company {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.78);
+  margin-bottom: 0;
+}
+.resume .experience-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.resume .experience-tech span {
+  font-size: 12px;
+  font-weight: 500;
+  color: #d7f9e6;
+  background: rgba(24, 210, 110, 0.1);
+  border: 1px solid rgba(24, 210, 110, 0.25);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/

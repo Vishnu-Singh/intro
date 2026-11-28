@@ -239,25 +239,79 @@
   });
 
   /**
-   * Static contact form handler (mailto fallback)
+   * Static contact form handler (FormSubmit AJAX + mailto fallback)
    */
   const contactForm = select('#contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', async function(e) {
       e.preventDefault();
+
       const name = select('#name').value.trim();
       const email = select('#email').value.trim();
       const subject = select('#subject').value.trim();
       const message = select('#message').value.trim();
 
-      const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-      const mailtoUrl = `mailto:vishnusingh1847@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
+      const loadingEl = select('#contact-loading');
+      const errorEl = select('#contact-error');
       const successEl = select('#contact-success');
-      if (successEl) {
-        successEl.style.display = 'block';
+      const submitBtn = select('#contact-submit');
+
+      if (errorEl) {
+        errorEl.style.display = 'none';
+        errorEl.textContent = '';
       }
-      window.location.href = mailtoUrl;
+      if (successEl) successEl.style.display = 'none';
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!name || !emailRegex.test(email) || !subject || !message) {
+        if (errorEl) {
+          errorEl.textContent = 'Please fill in all fields with a valid email address.';
+          errorEl.style.display = 'block';
+        }
+        return;
+      }
+
+      if (loadingEl) loadingEl.style.display = 'block';
+      if (submitBtn) submitBtn.disabled = true;
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/vishnusingh1847@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            _replyto: email,
+            subject: subject,
+            _subject: `Portfolio Contact: ${subject}`,
+            message: message,
+            _template: 'table'
+          })
+        });
+
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok || data.success === 'false' || data.success === false) {
+          throw new Error(data.message || 'Unable to send message right now.');
+        }
+
+        if (successEl) {
+          successEl.style.display = 'block';
+        }
+        contactForm.reset();
+      } catch (err) {
+        const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+        const mailtoUrl = `mailto:vishnusingh1847@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        if (errorEl) {
+          errorEl.innerHTML = `Could not send directly (${err.message}). <a href="${mailtoUrl}" style="color:#fff;text-decoration:underline;">Click here to send via your email app</a>.`;
+          errorEl.style.display = 'block';
+        }
+      } finally {
+        if (loadingEl) loadingEl.style.display = 'none';
+        if (submitBtn) submitBtn.disabled = false;
+      }
     });
   }
 
